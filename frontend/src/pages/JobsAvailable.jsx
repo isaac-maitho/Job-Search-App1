@@ -6,7 +6,7 @@ function JobsAvailable() {
 
     useEffect(() =>{
         const fetchJobs = async () =>{
-            const response = await fetch('http://localhost:4000/api/jobs')
+            const response = await fetch('/api/jobs')
             const json = await response.json()
 
             if(response.ok){
@@ -20,7 +20,7 @@ function JobsAvailable() {
   return (
     <div>
         {jobs && jobs.map((job) =>{
-            <p key={job._id}>{job.title}</p>
+           return <p key={job._id}>{job.title}</p>
         })}
     </div>
   )
