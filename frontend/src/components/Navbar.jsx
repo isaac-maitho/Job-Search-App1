@@ -19,7 +19,7 @@ function Navbar({title}) {
       <div className='mx-auto'>
         <Link to='/jobs-available' 
            className='btn btn-ghost rounded-btn font-bold'  
-           onClick={() => navigate('/jpbs-available')}>
+           onClick={() => navigate('/jobs-available')}>
           Jobs Available
         </Link>
       </div>

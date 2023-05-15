@@ -1,9 +1,14 @@
-const jobModel = require('../models/JobsModel')
+const job = require('../models/JobsModel')
 
 //get all jobs
 const getJobs = async (req, res) =>{
-    const jobs = await job.find({}).sort({createdAt: -1})
-    res.status(200).json(jobs)
+    try {
+        const jobs = await job.find({}).sort({createdAt: -1})
+        res.status(200).json(jobs)
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({error: 'Internal error'})
+    }
 }
 
 //get a single job
