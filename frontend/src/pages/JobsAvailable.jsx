@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import JobDetails from '../components/JobDetails'
 
 function JobsAvailable() {
 
@@ -20,7 +21,7 @@ function JobsAvailable() {
   return (
     <div>
         {jobs && jobs.map((job) =>{
-           return <p key={job._id}>{job.title}</p>
+           return <JobDetails key={job._id} job = {job} /> 
         })}
     </div>
   )
