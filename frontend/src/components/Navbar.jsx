@@ -15,14 +15,14 @@ function Navbar({title}) {
           <FaSearchDollar className='inline text-3xl pr-2' />
           {title}
         </Link>
-      </div>
-      <div className='mx-auto'>
+
         <Link to='/jobs-available' 
            className='btn btn-ghost rounded-btn font-bold'  
            onClick={() => navigate('/jobs-available')}>
           Jobs Available
         </Link>
       </div>
+    
       <div className="justify-end">
         <Link to='/about' 
            className='btn btn-ghost rounded-btn'  

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.job-details {
+    background-color: aliceblue;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px rgba(red, green, blue, alpha);
+}
+
+.job-details h4 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: aqua;
+}
+
+.job-details p {
+    font-size: 0.9em;
+    color: black;
+    margin: 0;
+}
