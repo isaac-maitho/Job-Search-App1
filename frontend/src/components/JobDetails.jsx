@@ -1,4 +1,5 @@
 import React from 'react'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 function JobDetails({job}) {
   return (
@@ -6,7 +7,7 @@ function JobDetails({job}) {
         <h4>{job.title}</h4>
         <p><strong>Qualifications: </strong>{job.description}</p>
         <p><strong>Contact Details: </strong>{job.contact}</p>
-        <p>{job.createdAt}</p>
+        <p>{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true})}</p>
     </div>
   )
 }
