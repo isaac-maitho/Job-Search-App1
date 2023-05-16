@@ -18,7 +18,7 @@ const getJob = async (req,res) =>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error: 'No such job'})
     }
-    const job = await job.findById(id)
+    const singleJob = await job.findById(id)
 
     if(!job){
         return res.status(404).json({error:'No such job'})
@@ -48,7 +48,7 @@ const deleteJob = async(req,res) =>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error: 'No such job'})
     }
-    const job = await job.findOneAndDelete({_id: id})
+    const deletedJob = await job.findOneAndDelete({_id: id})
 
     if(!job){
         return res.status(404).json({error:'No such job'})
@@ -63,7 +63,7 @@ const updateJob = async (req,res) =>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error: 'No such job'})
     }
-    const job = await job.findOneAndUpdate({_id: id}, {...req.body})
+    const updatedJob = await job.findOneAndUpdate({_id: id}, {...req.body})
 
     if(!job){
         return res.status(404).json({error:'No such job'})
