@@ -34,12 +34,11 @@ const createJob = async (req, res) =>{
 
     //add doc to db
     try {
-        const job = await jobModel.create({title, description, contact})
+        const newJob = await job.create({title, description, contact})
         res.status(200).json(job)
     } catch (error) {
         res.status(400).json({error: error.message})
     }
-    res.json({mssg: 'POST a single job'})
 }
 
 //delete a job
