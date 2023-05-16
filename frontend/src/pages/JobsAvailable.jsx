@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import JobDetails from '../components/JobDetails'
+import JobForm from '../components/JobForm'
 
 function JobsAvailable() {
 
@@ -23,6 +24,8 @@ function JobsAvailable() {
         {jobs && jobs.map((job) =>{
            return <JobDetails key={job._id} job = {job} /> 
         })}
+
+        <JobForm />
     </div>
   )
 }
