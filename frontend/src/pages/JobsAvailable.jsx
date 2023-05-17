@@ -1,11 +1,10 @@
-import { useEffect } from 'react'
-import { useJobsContext } from '../hooks/useJobsContext'
+import { useEffect, useState } from 'react'
 import JobDetails from '../components/JobDetails'
 import JobForm from '../components/JobForm'
 
 function JobsAvailable() {
 
-    const { jobs, dispatch } = useJobsContext()
+    const [jobs, setJobs] = useState(null)
 
     useEffect(() =>{
         const fetchJobs = async () =>{
@@ -13,12 +12,11 @@ function JobsAvailable() {
             const json = await response.json()
 
             if(response.ok){
-                dispatch({type: 'GET_JOBS', payload: json})
+                setJobs(json)
             }
         }
         //call function 
         fetchJobs()
-        // eslint-disable-next-line
     },[])
 
   return (
