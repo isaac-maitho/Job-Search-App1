@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import { useJobsContext } from '../hooks/useJobsContext'
 
 function JobForm() {
 
+    const [dispatch] = useJobsContext()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [contact, setContact] = useState('')
@@ -30,6 +32,7 @@ function JobForm() {
             setContact('')
             setError(null)
             console.log('Job Added successfully', json)
+            dispatch({type: 'CREATE_JOB', payload: json})
         }
         
     }
