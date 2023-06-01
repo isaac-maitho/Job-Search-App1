@@ -29,6 +29,16 @@ function Navbar({title}) {
            onClick={() => navigate('/about')}>
           About
         </Link>
+        <Link to='/login' 
+           className='btn btn-ghost rounded-btn'  
+           onClick={() => navigate('/login')}>
+          Login
+        </Link>
+        <Link to='/signup' 
+           className='btn btn-ghost rounded-btn'  
+           onClick={() => navigate('/signup')}>
+          Signup
+        </Link>
       </div>
     </nav>
   )
