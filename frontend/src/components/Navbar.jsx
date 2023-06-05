@@ -2,8 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { FaSearchDollar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import PropTypes  from 'prop-types'
+import useLogout from '../hooks/useLogout'
 
 function Navbar({title}) {
+  const { logout } = useLogout()
+  
+  const handleClick = () =>{
+    logout()
+  }
 
   const navigate = useNavigate()
   return (
@@ -21,6 +27,9 @@ function Navbar({title}) {
            onClick={() => navigate('/jobs-available')}>
           Jobs Available
         </Link>
+        <div>
+          <button className='btn btn-ghost rounded-btn' onClick={handleClick}>Log Out</button>
+        </div>
       </div>
     
       <div className="justify-end">
