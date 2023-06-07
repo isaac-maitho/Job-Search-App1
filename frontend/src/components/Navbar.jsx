@@ -3,9 +3,11 @@ import { FaSearchDollar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import PropTypes  from 'prop-types'
 import useLogout from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 function Navbar({title}) {
   const { logout } = useLogout()
+  const { user } = useAuthContext()
   
   const handleClick = () =>{
     logout()
@@ -27,9 +29,12 @@ function Navbar({title}) {
            onClick={() => navigate('/jobs-available')}>
           Jobs Available
         </Link>
-        <div>
+        {user && (
+          <div>
+          <span>{user.email}</span>
           <button className='btn btn-ghost rounded-btn' onClick={handleClick}>Log Out</button>
         </div>
+        )}
       </div>
     
       <div className="justify-end">
@@ -38,6 +43,9 @@ function Navbar({title}) {
            onClick={() => navigate('/about')}>
           About
         </Link>
+      </div>
+      {!user && (
+      <div className="justify-end">
         <Link to='/login' 
            className='btn btn-ghost rounded-btn'  
            onClick={() => navigate('/login')}>
@@ -49,6 +57,7 @@ function Navbar({title}) {
           Signup
         </Link>
       </div>
+      )}
     </nav>
   )
 }
